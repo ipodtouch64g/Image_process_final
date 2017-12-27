@@ -1,15 +1,18 @@
-myResult = my50;
+
+myResultG = find50(myGradientAvgIntensity);
 for x = 1:10
-    [fitresult,gof] = createFit(myY,myX,myResult);
+    disp(x);
+    [fitresultG,gof] = createFit(myY,myX,myResultG);
     for i=1:720
         for j=1:1280
-            if ~isnan(myResult(i,j))
-                myResult(i,j)  = feval(fitresult,myX(i),myY(j));
+            if ~isnan(myResultG(i,j))
+                myResultG(i,j)  = feval(fitresultG,myX(i),myY(j));
             end
         end
     end
-    myResult(abs(myResult(:)-myGradientAvgIntensity(:))>0.1*myGradientAvgIntensity(:)) = NaN;
-    snapShot(:,:,x) = myResult;
+    myResultG(abs(myResultG(:)-myGradientAvgIntensity(:))>0.1*myGradientAvgIntensity(:)) = NaN;
+    myResultG = find50(myResultG);
+    snapShotG(:,:,x) = myResultG;
 end
 
 
