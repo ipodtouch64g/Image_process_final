@@ -10,9 +10,10 @@ for x = 1:10
             end
         end
     end
+    snapShotI(:,:,x) = myResultI;
     myResultI(abs(myResultI(:)-avgIIntensity(:))>0.1*avgIIntensity(:)) = NaN;
     myResultI = find50(myResultI);
-    snapShotI(:,:,x) = myResultI;
+    
 end
 
 

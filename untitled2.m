@@ -10,11 +10,16 @@ for x = 1:10
             end
         end
     end
+    snapShotG(:,:,x) = myResultG;
     myResultG(abs(myResultG(:)-myGradientAvgIntensity(:))>0.1*myGradientAvgIntensity(:)) = NaN;
     myResultG = find50(myResultG);
-    snapShotG(:,:,x) = myResultG;
+    
 end
-
+for i=1:720
+        for j=1:1280
+                lastG(i,j)  = feval(fitresultG,myX(i),myY(j));
+        end
+end
 
 
 
