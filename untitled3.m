@@ -16,7 +16,11 @@ for x = 1:10
     
 end
 
-
+for i=1:720
+        for j=1:1280
+                lastI(i,j)  = feval(fitresultI,myX(i),myY(j));
+        end
+end
 
 
 
