@@ -1,0 +1,5 @@
+function results = findGradient(im)
+    results(:,:,1) = imgradient(im(:,:,1));
+    results(:,:,2) = imgradient(im(:,:,2));
+    results(:,:,3) = imgradient(im(:,:,3));
+end
